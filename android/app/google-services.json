@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "175337414485",
+    "project_id": "slash-design-3cf60",
+    "storage_bucket": "slash-design-3cf60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175337414485:android:c491b3796ae064519499dc",
+        "android_client_info": {
+          "package_name": "com.example.slash_design"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "175337414485-7i1i4o61iingvh328t2ruskg7n43rhom.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi9TdnzMQfhIXxj24UqDIwUb7ASg7bY_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "175337414485-7i1i4o61iingvh328t2ruskg7n43rhom.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
