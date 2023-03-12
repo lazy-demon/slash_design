@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:slash_design/state/auth.dart';
+import 'package:slash_design/object/state/auth.dart';
 import '../router/router.dart';
 
 class AuthGuard extends AutoRedirectGuard {
@@ -10,7 +10,7 @@ class AuthGuard extends AutoRedirectGuard {
     print("construct");
     auth.listen(authStatusProvider, (previous, next) {
       print("listen");
-      if (previous != next && (next is! Loading)) {
+      if (previous != next) {
         print("reevaluate");
         reevaluate();
       }
@@ -21,9 +21,12 @@ class AuthGuard extends AutoRedirectGuard {
   Future<void> onNavigation(
       NavigationResolver resolver, StackRouter router) async {
     print("onNavigation");
-    if (auth.read(authStatusProvider) is Authenticated) {
+    print(auth.watch(authStatusProvider).toString());
+    if (auth.read(authStatusProvider) != null) {
+      print("true");
       resolver.next(true);
     } else {
+      print("redirect");
       redirect(const LoginRoute(), resolver: resolver);
     }
   }

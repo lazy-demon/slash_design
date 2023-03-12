@@ -1067,29 +1067,6 @@ class UserQueryDocumentSnapshot extends FirestoreQueryDocumentSnapshot<User>
 // JsonSerializableGenerator
 // **************************************************************************
 
-User _$UserFromJson(Map<String, dynamic> json) => User(
-      name: json['name'] as String,
-      age: json['age'] as int,
-      email: json['email'] as String,
-      cart: (json['cart'] as List<dynamic>)
-          .map((e) => CartItem.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-const _$UserFieldMap = <String, String>{
-  'name': 'name',
-  'age': 'age',
-  'email': 'email',
-  'cart': 'cart',
-};
-
-Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
-      'name': instance.name,
-      'age': instance.age,
-      'email': instance.email,
-      'cart': instance.cart.map((e) => e.toJson()).toList(),
-    };
-
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       name: json['name'] as String,
       age: json['age'] as int,
@@ -1100,9 +1077,16 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
           const [],
     );
 
+const _$$_UserFieldMap = <String, String>{
+  'name': 'name',
+  'age': 'age',
+  'email': 'email',
+  'cart': 'cart',
+};
+
 Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'name': instance.name,
       'age': instance.age,
       'email': instance.email,
-      'cart': instance.cart,
+      'cart': instance.cart.map((e) => e.toJson()).toList(),
     };

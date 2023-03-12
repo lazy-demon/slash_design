@@ -9,10 +9,11 @@ part 'user.freezed.dart';
 part 'user.g.dart';
 
 @freezed
-@JsonSerializable(createFieldMap: true, explicitToJson: true)
 class User with _$User {
   @Assert('age >= 0')
   @Assert('name.isNotEmpty')
+  // ignore: invalid_annotation_target
+  @JsonSerializable(createFieldMap: true, explicitToJson: true)
   factory User(
       {required String name,
       required int age,
@@ -24,8 +25,3 @@ class User with _$User {
 
 @Collection<User>('users')
 final usersRef = UserCollectionReference();
-
-final userProvider = StreamProvider((ref) async* {
-  yield FirebaseAuth.instance.currentUser;
-  yield* FirebaseAuth.instance.userChanges();
-});
