@@ -9,6 +9,7 @@ part 'cart_item.g.dart';
 
 @freezed
 class CartItem with _$CartItem {
+  // ignore: invalid_annotation_target
   @JsonSerializable(createFieldMap: true, explicitToJson: true)
   factory CartItem({
     required final Product product,

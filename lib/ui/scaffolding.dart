@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:slash_design/object/state/auth.dart';
-import 'package:slash_design/widgets/fab.dart';
-import 'package:slash_design/widgets/menu.dart';
+import 'package:slash_design/ui/widget/fab.dart';
+import 'package:slash_design/ui/widget/menu.dart';
 
 class Scaffolding extends ConsumerWidget {
   const Scaffolding({Key? key, required this.body}) : super(key: key);

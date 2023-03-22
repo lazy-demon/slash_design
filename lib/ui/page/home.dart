@@ -12,10 +12,10 @@ class HomePage extends ConsumerWidget {
     return Scaffolding(
         body: Column(
       children: [
-        ElevatedButton(
-            onPressed: () =>
-                ref.read(authStatusProvider.notifier).signInAnonymously(),
-            child: Text("login")),
+        // ElevatedButton(
+        //     onPressed: () =>
+        //         ref.read(authStatusProvider.notifier).signInAnonymously(),
+        //     child: Text("login")),
         ElevatedButton(
             onPressed: () => ref.read(authStatusProvider.notifier).signOut(),
             child: Text("logout"))
