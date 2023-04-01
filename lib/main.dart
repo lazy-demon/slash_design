@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:slash_design/firebase_options.dart';
 import 'package:slash_design/router/guard/auth.dart';
 import 'package:slash_design/router/router.dart';
@@ -20,10 +18,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  FirebaseUIAuth.configureProviders([
-    EmailAuthProvider(),
-    // ... other providers
-  ]);
   runApp(const ProviderScope(child: App()));
 }
 
@@ -32,13 +26,12 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    late final router = AppRouter(authGuard: AuthGuard(ref));
+    late final appRouter = AppRouter(ref);
 
     return MaterialApp.router(
       theme: ThemeData.dark(useMaterial3: true),
-      routeInformationProvider: router.routeInfoProvider(),
-      routeInformationParser: router.defaultRouteParser(),
-      routerDelegate: router.delegate(),
+      routerConfig: appRouter.config(),
+      title: "Slash / Design",
     );
   }
 }

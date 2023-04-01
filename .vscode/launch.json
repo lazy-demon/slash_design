@@ -7,19 +7,28 @@
         {
             "name": "slash_design",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": [
+                "--web-renderer html"
+            ]
         },
         {
             "name": "slash_design (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": [
+                "--web-renderer html"
+            ]
         },
         {
             "name": "slash_design (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": [
+                "--web-renderer html"
+            ]
         }
     ]
 }

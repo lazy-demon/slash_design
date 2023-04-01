@@ -2,7 +2,11 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart';
+import 'package:flutter_firebase_chat_core/flutter_firebase_chat_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:slash_design/object/state/auth.dart';
+
 // import 'package:flutter_lorem/flutter_lorem.dart';
 // import 'package:fonq/logic/provider/user.dart';
 // import '../../logic/provider/auth.dart';
@@ -18,8 +22,18 @@ class FAB extends ConsumerWidget {
 
     var list = {
       // "login": () async {
-      //   await ref.watch(authStateProvider);
+      //   ref.read(authStatusProvider.notifier).signInAnonymously();
       //   // print(ref.read(userProvider).value);
+      // },
+      // "user": () async {
+      // await FirebaseChatCore.instance.createUserInFirestore(
+      //   User(
+      //     firstName: ref.watch(authStatusProvider)!.email,
+      //     lastName: 'Doe',
+      //     id: ref.watch(authStatusProvider)!.uid,
+      //     imageUrl: 'https://i.pravatar.cc/300',
+      //   ),
+      // );
       // },
       // "logout": () async {
       //   await ref.read().signOut();

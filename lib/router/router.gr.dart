@@ -1,329 +1,189 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
-part of 'router.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:auto_route/auto_route.dart' as _i6;
+import 'package:flutter/material.dart' as _i7;
+import 'package:flutter_chat_types/flutter_chat_types.dart' as _i8;
+import 'package:slash_design/ui/page/chat.dart' as _i3;
+import 'package:slash_design/ui/page/chat/rooms.dart' as _i1;
+import 'package:slash_design/ui/page/chat/users.dart' as _i2;
+import 'package:slash_design/ui/page/home.dart' as _i4;
+import 'package:slash_design/ui/page/login.dart' as _i5;
 
-class _$AppRouter extends RootStackRouter {
-  _$AppRouter({
-    GlobalKey<NavigatorState>? navigatorKey,
-    required this.authGuard,
-  }) : super(navigatorKey);
-
-  final AuthGuard authGuard;
+abstract class $AppRouter extends _i6.RootStackRouter {
+  $AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
+      : super(navigatorKey);
 
   @override
-  final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+  final Map<String, _i6.PageFactory> pagesMap = {
+    RoomsRoute.name: (routeData) {
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const HomePage(),
+        child: const _i1.RoomsPage(),
       );
     },
-    SignInRoute.name: (routeData) {
-      final args = routeData.argsAs<SignInRouteArgs>(
-          orElse: () => const SignInRouteArgs());
-      return MaterialPageX<dynamic>(
+    UsersRoute.name: (routeData) {
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: SignInScreen(
+        child: const _i2.UsersPage(),
+      );
+    },
+    ChatRoute.name: (routeData) {
+      final args = routeData.argsAs<ChatRouteArgs>();
+      return _i6.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i3.ChatPage(
           key: args.key,
-          providers: args.providers,
-          auth: args.auth,
-          headerMaxExtent: args.headerMaxExtent,
-          headerBuilder: args.headerBuilder,
-          sideBuilder: args.sideBuilder,
-          oauthButtonVariant: args.oauthButtonVariant,
-          desktopLayoutDirection: args.desktopLayoutDirection,
-          resizeToAvoidBottomInset: args.resizeToAvoidBottomInset,
-          showAuthActionSwitch: args.showAuthActionSwitch,
-          email: args.email,
-          subtitleBuilder: args.subtitleBuilder,
-          footerBuilder: args.footerBuilder,
-          loginViewKey: args.loginViewKey,
-          actions: args.actions,
-          breakpoint: args.breakpoint,
-          styles: args.styles,
+          room: args.room,
         ),
       );
     },
-    EmailVerificationRoute.name: (routeData) {
-      final args = routeData.argsAs<EmailVerificationRouteArgs>(
-          orElse: () => const EmailVerificationRouteArgs());
-      return MaterialPageX<dynamic>(
+    HomeRoute.name: (routeData) {
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: EmailVerificationScreen(
+        child: const _i4.HomePage(),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>();
+      return _i6.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i5.LoginPage(
+          args.resolver,
+          args.router,
           key: args.key,
-          auth: args.auth,
-          actions: args.actions,
-          headerBuilder: args.headerBuilder,
-          headerMaxExtent: args.headerMaxExtent,
-          sideBuilder: args.sideBuilder,
-          desktopLayoutDirection: args.desktopLayoutDirection,
-          breakpoint: args.breakpoint,
-          actionCodeSettings: args.actionCodeSettings,
         ),
       );
     },
   };
-
-  @override
-  List<RouteConfig> get routes => [
-        RouteConfig(
-          HomeRoute.name,
-          path: '/',
-          guards: [authGuard],
-        ),
-        RouteConfig(
-          SignInRoute.name,
-          path: '/login',
-        ),
-        RouteConfig(
-          EmailVerificationRoute.name,
-          path: '/email-verification',
-        ),
-      ];
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute()
+/// [_i1.RoomsPage]
+class RoomsRoute extends _i6.PageRouteInfo<void> {
+  const RoomsRoute({List<_i6.PageRouteInfo>? children})
       : super(
-          HomeRoute.name,
-          path: '/',
+          RoomsRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'HomeRoute';
+  static const String name = 'RoomsRoute';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [SignInScreen]
-class SignInRoute extends PageRouteInfo<SignInRouteArgs> {
-  SignInRoute({
-    Key? key,
-    List<AuthProvider<AuthListener, AuthCredential>>? providers,
-    FirebaseAuth? auth,
-    double? headerMaxExtent,
-    Widget Function(
-      BuildContext,
-      BoxConstraints,
-      double,
-    )?
-        headerBuilder,
-    Widget Function(
-      BuildContext,
-      BoxConstraints,
-    )?
-        sideBuilder,
-    OAuthButtonVariant? oauthButtonVariant = OAuthButtonVariant.icon_and_text,
-    TextDirection? desktopLayoutDirection,
-    bool? resizeToAvoidBottomInset = true,
-    bool? showAuthActionSwitch,
-    String? email,
-    Widget Function(
-      BuildContext,
-      AuthAction,
-    )?
-        subtitleBuilder,
-    Widget Function(
-      BuildContext,
-      AuthAction,
-    )?
-        footerBuilder,
-    Key? loginViewKey,
-    List<FirebaseUIAction> actions = const [],
-    double breakpoint = 800,
-    Set<FirebaseUIStyle>? styles,
-  }) : super(
-          SignInRoute.name,
-          path: '/login',
-          args: SignInRouteArgs(
-            key: key,
-            providers: providers,
-            auth: auth,
-            headerMaxExtent: headerMaxExtent,
-            headerBuilder: headerBuilder,
-            sideBuilder: sideBuilder,
-            oauthButtonVariant: oauthButtonVariant,
-            desktopLayoutDirection: desktopLayoutDirection,
-            resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-            showAuthActionSwitch: showAuthActionSwitch,
-            email: email,
-            subtitleBuilder: subtitleBuilder,
-            footerBuilder: footerBuilder,
-            loginViewKey: loginViewKey,
-            actions: actions,
-            breakpoint: breakpoint,
-            styles: styles,
-          ),
+/// [_i2.UsersPage]
+class UsersRoute extends _i6.PageRouteInfo<void> {
+  const UsersRoute({List<_i6.PageRouteInfo>? children})
+      : super(
+          UsersRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'SignInRoute';
+  static const String name = 'UsersRoute';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }
 
-class SignInRouteArgs {
-  const SignInRouteArgs({
+/// generated route for
+/// [_i3.ChatPage]
+class ChatRoute extends _i6.PageRouteInfo<ChatRouteArgs> {
+  ChatRoute({
+    _i7.Key? key,
+    required _i8.Room room,
+    List<_i6.PageRouteInfo>? children,
+  }) : super(
+          ChatRoute.name,
+          args: ChatRouteArgs(
+            key: key,
+            room: room,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ChatRoute';
+
+  static const _i6.PageInfo<ChatRouteArgs> page =
+      _i6.PageInfo<ChatRouteArgs>(name);
+}
+
+class ChatRouteArgs {
+  const ChatRouteArgs({
     this.key,
-    this.providers,
-    this.auth,
-    this.headerMaxExtent,
-    this.headerBuilder,
-    this.sideBuilder,
-    this.oauthButtonVariant = OAuthButtonVariant.icon_and_text,
-    this.desktopLayoutDirection,
-    this.resizeToAvoidBottomInset = true,
-    this.showAuthActionSwitch,
-    this.email,
-    this.subtitleBuilder,
-    this.footerBuilder,
-    this.loginViewKey,
-    this.actions = const [],
-    this.breakpoint = 800,
-    this.styles,
+    required this.room,
   });
 
-  final Key? key;
+  final _i7.Key? key;
 
-  final List<AuthProvider<AuthListener, AuthCredential>>? providers;
-
-  final FirebaseAuth? auth;
-
-  final double? headerMaxExtent;
-
-  final Widget Function(
-    BuildContext,
-    BoxConstraints,
-    double,
-  )? headerBuilder;
-
-  final Widget Function(
-    BuildContext,
-    BoxConstraints,
-  )? sideBuilder;
-
-  final OAuthButtonVariant? oauthButtonVariant;
-
-  final TextDirection? desktopLayoutDirection;
-
-  final bool? resizeToAvoidBottomInset;
-
-  final bool? showAuthActionSwitch;
-
-  final String? email;
-
-  final Widget Function(
-    BuildContext,
-    AuthAction,
-  )? subtitleBuilder;
-
-  final Widget Function(
-    BuildContext,
-    AuthAction,
-  )? footerBuilder;
-
-  final Key? loginViewKey;
-
-  final List<FirebaseUIAction> actions;
-
-  final double breakpoint;
-
-  final Set<FirebaseUIStyle>? styles;
+  final _i8.Room room;
 
   @override
   String toString() {
-    return 'SignInRouteArgs{key: $key, providers: $providers, auth: $auth, headerMaxExtent: $headerMaxExtent, headerBuilder: $headerBuilder, sideBuilder: $sideBuilder, oauthButtonVariant: $oauthButtonVariant, desktopLayoutDirection: $desktopLayoutDirection, resizeToAvoidBottomInset: $resizeToAvoidBottomInset, showAuthActionSwitch: $showAuthActionSwitch, email: $email, subtitleBuilder: $subtitleBuilder, footerBuilder: $footerBuilder, loginViewKey: $loginViewKey, actions: $actions, breakpoint: $breakpoint, styles: $styles}';
+    return 'ChatRouteArgs{key: $key, room: $room}';
   }
 }
 
 /// generated route for
-/// [EmailVerificationScreen]
-class EmailVerificationRoute extends PageRouteInfo<EmailVerificationRouteArgs> {
-  EmailVerificationRoute({
-    Key? key,
-    FirebaseAuth? auth,
-    List<FirebaseUIAction> actions = const [],
-    Widget Function(
-      BuildContext,
-      BoxConstraints,
-      double,
-    )?
-        headerBuilder,
-    double? headerMaxExtent,
-    Widget Function(
-      BuildContext,
-      BoxConstraints,
-    )?
-        sideBuilder,
-    TextDirection? desktopLayoutDirection,
-    double breakpoint = 500,
-    ActionCodeSettings? actionCodeSettings,
-  }) : super(
-          EmailVerificationRoute.name,
-          path: '/email-verification',
-          args: EmailVerificationRouteArgs(
-            key: key,
-            auth: auth,
-            actions: actions,
-            headerBuilder: headerBuilder,
-            headerMaxExtent: headerMaxExtent,
-            sideBuilder: sideBuilder,
-            desktopLayoutDirection: desktopLayoutDirection,
-            breakpoint: breakpoint,
-            actionCodeSettings: actionCodeSettings,
-          ),
+/// [_i4.HomePage]
+class HomeRoute extends _i6.PageRouteInfo<void> {
+  const HomeRoute({List<_i6.PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'EmailVerificationRoute';
+  static const String name = 'HomeRoute';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }
 
-class EmailVerificationRouteArgs {
-  const EmailVerificationRouteArgs({
+/// generated route for
+/// [_i5.LoginPage]
+class LoginRoute extends _i6.PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({
+    required _i6.NavigationResolver resolver,
+    required _i6.StackRouter router,
+    _i7.Key? key,
+    List<_i6.PageRouteInfo>? children,
+  }) : super(
+          LoginRoute.name,
+          args: LoginRouteArgs(
+            resolver: resolver,
+            router: router,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRoute';
+
+  static const _i6.PageInfo<LoginRouteArgs> page =
+      _i6.PageInfo<LoginRouteArgs>(name);
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({
+    required this.resolver,
+    required this.router,
     this.key,
-    this.auth,
-    this.actions = const [],
-    this.headerBuilder,
-    this.headerMaxExtent,
-    this.sideBuilder,
-    this.desktopLayoutDirection,
-    this.breakpoint = 500,
-    this.actionCodeSettings,
   });
 
-  final Key? key;
+  final _i6.NavigationResolver resolver;
 
-  final FirebaseAuth? auth;
+  final _i6.StackRouter router;
 
-  final List<FirebaseUIAction> actions;
-
-  final Widget Function(
-    BuildContext,
-    BoxConstraints,
-    double,
-  )? headerBuilder;
-
-  final double? headerMaxExtent;
-
-  final Widget Function(
-    BuildContext,
-    BoxConstraints,
-  )? sideBuilder;
-
-  final TextDirection? desktopLayoutDirection;
-
-  final double breakpoint;
-
-  final ActionCodeSettings? actionCodeSettings;
+  final _i7.Key? key;
 
   @override
   String toString() {
-    return 'EmailVerificationRouteArgs{key: $key, auth: $auth, actions: $actions, headerBuilder: $headerBuilder, headerMaxExtent: $headerMaxExtent, sideBuilder: $sideBuilder, desktopLayoutDirection: $desktopLayoutDirection, breakpoint: $breakpoint, actionCodeSettings: $actionCodeSettings}';
+    return 'LoginRouteArgs{resolver: $resolver, router: $router, key: $key}';
   }
 }
