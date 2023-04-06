@@ -8,8 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:slash_design/object/state/auth.dart';
 import 'package:slash_design/router/router.dart';
 
-import '../../router/router.gr.dart';
-import '../scaffolding.dart';
+import '../../../router/router.gr.dart';
+import '../../scaffolding.dart';
 
 @RoutePage()
 class LoginPage extends ConsumerWidget {
@@ -19,18 +19,10 @@ class LoginPage extends ConsumerWidget {
   final StackRouter router;
 
   void verifyEmail(NavigationResolver resolver, StackRouter router) {
-    // router.replace(EmailVerificationRoute(
-    //   actions: [
-    //     EmailVerifiedAction(() {
-    //       resolver.next(true);
-    //     }),
-    //     AuthCancelledAction((context) {
-    //       FirebaseUIAuth.signOut(context: context);
-    //       router.replaceNamed('/');
-    //     }),
-    //   ],
-    // )
-    // );
+    router.replace(VerificationRoute(
+      resolver: resolver,
+      router: router,
+    ));
   }
 
   @override
@@ -77,8 +69,7 @@ class LoginPage extends ConsumerWidget {
               .then((value) => print("Room Updated"))
               .catchError((error) => print("Failed to update room: $error"));
           if (!state.credential.user!.emailVerified) {
-            // TODO: verifyEmail(resolver, router);
-            resolver.next(true);
+            verifyEmail(resolver, router);
           } else {
             resolver.next(true);
           }
